@@ -30,9 +30,9 @@ html, body {
 }
 
 #polaroid {
- 	-webkit-box-shadow: 0 3px 6px #ccc;
- 	-moz-box-shadow: 0 3px 6px #ccc;
- 	box-shadow: 0 3px 6px #ccc;
+ 	-webkit-box-shadow: 0 2px 8px #ccc;
+ 	-moz-box-shadow: 0 2px 8px #ccc;
+ 	box-shadow: 0 2px 8px #ccc;
 }
 #polaroid-top {
 	border: 10px solid #fff;
