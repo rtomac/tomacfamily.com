@@ -2,50 +2,49 @@
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
-html, body, #body-outer {
+html, body {
 	height: 100%;
-}
-
-#body-outer {
-	position: relative;
 	min-height: 370px;
 }
 
-#body-inner {
+#body {
 	position: relative;
 	top: 50%; margin-top: -185px;
-	padding: 15px 0;
-	background-color: #fff;
-}
-
-.section {
 	text-align: center;
 }
 
-.block {
-	display: inline-block;
-	vertical-align: top;
-	text-align: left;
-	padding: 0 15px;
-	width: 320px;
+#content {
+	max-width: 710px;
+	margin: auto;
+	padding: 15px 0;
+	background-color: #fff;
+	text-align: center;
 }
 
-#pic {
+.section {
+	display: inline-block;
+	width: 320px;
+	padding: 0 15px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#polaroid {
  	-webkit-box-shadow: 0 3px 6px #ccc;
  	-moz-box-shadow: 0 3px 6px #ccc;
  	box-shadow: 0 3px 6px #ccc;
 }
-#pic-top {
+#polaroid-top {
 	border: 10px solid #fff;
 	border-bottom-width: 0;
 }
-#pic-image {
+#polaroid-image {
 	width: 300px; height: 225px;
 	background-image: url(family.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 }
-#pic-bottom {
+#polaroid-bottom {
 	padding:0 10px;
 	text-align: center;
 	height: 60px; line-height: 60px;
@@ -84,19 +83,25 @@ html, body, #body-outer {
 	text-align: center;
 }
 
-@media (max-width: 700px) {
-	#body-inner {
+@media (max-width: 710px) {
+
+	#body {
 		top: 0; margin-top: 0;
 	}
+
+	#content {
+		max-width: 355px;
+	}
+
 }
 
-@media (max-width: 350px) {
+@media (max-width: 355px) {
 
-	.block {
+	.section {
 		width: 280px;
 	}
 
-	#pic-image {
+	#polaroid-image {
 		width: 260px; height: 195px;
 	}
 
