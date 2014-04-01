@@ -69,6 +69,14 @@ html, body {
 .twitter { background-position: -50px 0; }
 .linkedin { background-position: -100px 0; }
 .pinterest { background-position: -150px 0; }
+.googleplus { background-position: 0 -50px; }
+.instagram { background-position: -50px -50px; }
+.youtube { background-position: -100px -50px; }
+.skype { background-position: -150px -50px; }
+.blogger { background-position: 0 -100px; }
+.paypal { background-position: -50px -100px; }
+.rss { background-position: -100px -100px; }
+.dropbox { background-position: -150px -100px; }
 
 #footer {
 	color: #aaa;
