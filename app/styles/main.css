@@ -38,13 +38,13 @@ html, body {
 }
 #polaroid-image {
 	width: 300px; height: 225px;
-	background-image: url(family.jpg);
+	background-image: url(../images/family.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 #polaroid-bottom {
 	height: 60px;
-	background-image: url(caption.png);
+	background-image: url(../images/caption.png);
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -63,7 +63,7 @@ html, body {
 .social-icon {
 	display: inline-block;
 	width: 32px; height: 32px;
-	background: url(social-icons.png) no-repeat;
+	background: url(../images/social-icons.png) no-repeat;
 }
 .facebook { background-position: 0 0; }
 .twitter { background-position: -50px 0; }
