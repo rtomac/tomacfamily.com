@@ -8,6 +8,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
         <link rel="stylesheet" href="styles/main.css" />
         <link rel="icon" href="favicon.ico" />
+        <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+        <script>
+        	$(function() { $('#footer-date').html(new Date().getFullYear()); });
+        </script>
     </head>
     <body>
 		<div id="content">
@@ -25,9 +29,8 @@
 					<div class="title">Follow <span class="name">ryan</span></div>
 					<div class="container">
 						<a href="http://twitter.com/rtomac" class="social-icon twitter" title="Ryan on Twitter"></a>
-						<a href="http://www.facebook.com/rtomac" class="social-icon facebook" title="Ryan on Facebook"></a>
 						<a href="http://www.linkedin.com/in/rtomac" class="social-icon linkedin" title="Ryan on LinkedIn"></a>
-						<a href="http://plus.google.com/+RyanTomac" class="social-icon googleplus" title="Ryan on Google Plus"></a>
+						<a href="http://www.facebook.com/rtomac" class="social-icon facebook" title="Ryan on Facebook"></a>
 					</div>
 					<div class="title">Follow <span class="name">gwen</span></div>
 					<div class="container">
@@ -40,7 +43,7 @@
 			</div>
 
 			<div id="footer">
-				&copy; 2015 Ryan &amp; Gwen Tomac
+				&copy; <span id="footer-date"></span> Ryan &amp; Gwen Tomac
 			</div>
 
 		</div>
