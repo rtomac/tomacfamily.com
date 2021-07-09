@@ -17,7 +17,18 @@ npm install -g grunt-cli
 grunt build
 ```
 
-## Run local
+## Run locally
 ```
 grunt serve
+```
+or
+```
+grunt serve:dist
+```
+
+## Update dependencies
+```
+npm install -g npm-check-updates
+ncu
+ncu -u
 ```
