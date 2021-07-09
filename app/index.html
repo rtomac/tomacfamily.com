@@ -11,10 +11,6 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
-        <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
-        <script>
-        	$(function() { $('#footer-date').html(new Date().getFullYear()); });
-        </script>
     </head>
     <body>
 		<div id="content">
@@ -45,7 +41,7 @@
 			</div>
 
 			<div id="footer">
-				&copy; <span id="footer-date"></span> Ryan &amp; Gwen Tomac
+				&copy; 2014 - <%= grunt.template.today('yyyy') %> Ryan &amp; Gwen Tomac
 			</div>
 
 		</div>

@@ -27,8 +27,21 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '<%= config.app %>/',
           src: '**',
-          dest: '<%= config.dist %>/'
+          dest: '<%= config.dist %>/',
         }]
+      },
+      html: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.dist %>/',
+          src: '*.html',
+          dest: '<%= config.dist %>/',
+        }],
+        options: {
+          process: function (content, srcpath) {
+            return grunt.template.process(content);
+          }
+        }
       }
     },
 
@@ -83,19 +96,20 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('serve', 'start the server and preview your app', function (target) {
+  grunt.registerTask('build', [
+    'clean',
+    'copy:dist',
+    'copy:html',
+    'cssmin',
+    'htmlmin'
+  ]);
+
+  grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
     grunt.task.run(['connect:app:keepalive']);
   });
-
-  grunt.registerTask('build', [
-    'clean',
-    'copy',
-    'cssmin',
-    'htmlmin'
-  ]);
 
   grunt.registerTask('default', ['build']);
 
