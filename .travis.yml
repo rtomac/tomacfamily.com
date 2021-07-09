@@ -1,15 +1,32 @@
 language: node_js
-node_js:
-- node
+node_js: node
+
+env:
+  global:
+    - AWS_ACCESS_KEY_ID: AKIA4EHLXLC5SQYBKHNL
+    - AWS_SECRET_ACCESS_KEY:
+        secure: QAc9sN8/Pixq9S0Pd9fRwHVQya5MXKOypZp0I1/NU38MejICr/VaeVEBOCSEkmiD1wtgRfUkfmoef+zQM2aIYwY2YTRvM9nTlNigzl/eVQ8ker/Zgu/3U2Oy/bhXV3JS5cvco5esYqyPMKYP0vj5imyBg4pIjAT2W+wITINMBFozlXN1aJD4fBv4UmrSHxnSIrvHtYYE7peDmAvo3TA594OiEFFR1v9nC2VFvnckjjtQmqR9WJ/A2lXGBmM4q1FhSa/GIlvUobnBosI8Kadymqs7ETAcaA5w/3X5dK+XcMpdtHg05jOHmSqaoPCtflCspFvMUHI8KMVlOixGIhMmzW8v+UN0C42+HerZQhkzk+DRsKIpAR75IKR9c5FsWqS/2dzTpBnOV0Q9uUXMFJYc3jGxEhYJ7sRoUiMKduPwXeIZOx46BoprN+3hkx0qGEeGDkCTQKWd9M9d0Fn0R0FDoN/3qRbwTZ8TIy9jwarrvifemNHXdSMglbLhT2uca6pJe9Xx5sR/4YHEmQRxWPGZCdqZ38IpXfwxv15peMrKo7XxBP0Npw3vuxPMLufBjRl+ecTNwzSHHnMGT2qPxwhqiMC4OaSysEgvkx9DTlr5ardMXkcna9WoeaEiGQuOy5083CECfqmoyG3XkI13ltfefZTf0bdmracJHKJNiM4UsPw=
+    - AWS_DEFAULT_REGION: us-west-2
+    - S3_BUCKET_NAME: tomacfamily.com
+    - CLOUDFRONT_DIST_ID: EXMLK9LA709C9
+
+cache:
+  - npm
+  - pip
+
+before_install:
+  - pip install --user awscli
+
 script: grunt build
+
 deploy:
-  provider: s3
-  access_key_id: AKIA4EHLXLC5SQYBKHNL
-  secret_access_key:
-    secure: QAc9sN8/Pixq9S0Pd9fRwHVQya5MXKOypZp0I1/NU38MejICr/VaeVEBOCSEkmiD1wtgRfUkfmoef+zQM2aIYwY2YTRvM9nTlNigzl/eVQ8ker/Zgu/3U2Oy/bhXV3JS5cvco5esYqyPMKYP0vj5imyBg4pIjAT2W+wITINMBFozlXN1aJD4fBv4UmrSHxnSIrvHtYYE7peDmAvo3TA594OiEFFR1v9nC2VFvnckjjtQmqR9WJ/A2lXGBmM4q1FhSa/GIlvUobnBosI8Kadymqs7ETAcaA5w/3X5dK+XcMpdtHg05jOHmSqaoPCtflCspFvMUHI8KMVlOixGIhMmzW8v+UN0C42+HerZQhkzk+DRsKIpAR75IKR9c5FsWqS/2dzTpBnOV0Q9uUXMFJYc3jGxEhYJ7sRoUiMKduPwXeIZOx46BoprN+3hkx0qGEeGDkCTQKWd9M9d0Fn0R0FDoN/3qRbwTZ8TIy9jwarrvifemNHXdSMglbLhT2uca6pJe9Xx5sR/4YHEmQRxWPGZCdqZ38IpXfwxv15peMrKo7XxBP0Npw3vuxPMLufBjRl+ecTNwzSHHnMGT2qPxwhqiMC4OaSysEgvkx9DTlr5ardMXkcna9WoeaEiGQuOy5083CECfqmoyG3XkI13ltfefZTf0bdmracJHKJNiM4UsPw=
-  bucket: tomacfamily.com
-  region: us-west-2
-  local-dir: dist
-  on:
-    repo: rtomac/tomacfamily.com
-  skip_cleanup: true
+  - provider: s3
+    access_key_id: ${AWS_ACCESS_KEY_ID}
+    secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+    bucket: ${S3_BUCKET_NAME}
+    region: ${AWS_DEFAULT_REGION}
+    local_dir: dist
+    edge: true  # dpl v2
+  - provider: script
+    script: aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DIST_ID} --paths "/*"
+    edge: true  # dpl v2
